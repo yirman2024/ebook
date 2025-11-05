@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Define el tipo de documento y el idioma principal -->
   <meta charset="UTF-8">
+  <!-- Ajusta el sitio para que sea responsivo en móviles -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título que se muestra en la pestaña del navegador -->
   <title>Asistente de Guía Inteligente - SocialTrove</title>
+
   <style>
+    /* ======== ESTILOS GENERALES ======== */
+
+    /* Habilita el scroll suave al hacer clic en enlaces ancla */
     html { scroll-behavior: smooth; }
+
+    /* Estilos base del cuerpo del sitio */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
-      color: #fff;
-      overflow-x: hidden;
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a); /* Fondo degradado oscuro */
+      color: #fff; /* Texto blanco */
+      overflow-x: hidden; /* Evita scroll horizontal */
     }
 
+    /* Encabezado principal */
     header {
       text-align: center;
       margin-top: 40px;
-      animation: fadeIn 1.2s ease forwards;
+      animation: fadeIn 1.2s ease forwards; /* Animación de aparición */
     }
 
+    /* Logo */
     header img {
       width: 200px;
-      filter: drop-shadow(0 0 15px rgba(0,198,255,0.7));
+      filter: drop-shadow(0 0 15px rgba(0,198,255,0.7)); /* Efecto de brillo azul */
     }
 
+    /* Título principal */
     h1 {
       font-size: 2.8rem;
       text-align: center;
       margin-top: 30px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: linear-gradient(90deg, #00c6ff, #0072ff); /* Degradado azul */
+      -webkit-background-clip: text; /* Aplica el degradado al texto */
+      -webkit-text-fill-color: transparent; /* Hace transparente el texto para mostrar el degradado */
       text-shadow: 0 0 25px rgba(0, 114, 255, 0.6);
     }
 
+    /* Párrafos generales */
     p {
       text-align: center;
       color: #ccc;
@@ -44,6 +57,7 @@
       font-size: 1.1rem;
     }
 
+    /* Contenedores de secciones (quién es, video, contador) */
     .for-who, .video-section, .user-counter {
       max-width: 900px;
       margin: 80px auto;
@@ -51,22 +65,26 @@
       background: linear-gradient(145deg, #0d0d0d, #171717);
       border-radius: 20px;
       padding: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6),
+                  inset 0 0 20px rgba(0,114,255,0.3);
       animation: fadeIn 1.2s ease forwards;
     }
 
+    /* Títulos de secciones */
     .for-who h2, .video-section h2, .user-counter h2 {
       color: #00c6ff;
       font-size: 2rem;
       margin-bottom: 25px;
     }
 
+    /* Videos */
     .video-container video {
       width: 100%;
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0,114,255,0.3);
     }
 
+    /* Botones */
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -78,19 +96,22 @@
       text-decoration: none;
       box-shadow: 0 4px 20px rgba(0,114,255,0.5);
       transition: all 0.3s ease;
-      animation: pulseGlow 2.5s infinite ease-in-out;
+      animation: pulseGlow 2.5s infinite ease-in-out; /* Animación luminosa */
     }
 
+    /* Efecto hover sobre botones */
     .btn:hover {
       transform: scale(1.1);
       box-shadow: 0 0 30px rgba(0,198,255,0.8);
     }
 
+    /* Animación de pulso */
     @keyframes pulseGlow {
       0%,100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
       50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
     }
 
+    /* Sección de planes */
     .plans {
       display: flex;
       flex-wrap: wrap;
@@ -101,21 +122,25 @@
       padding: 20px;
     }
 
+    /* Tarjeta de cada plan */
     .plan {
       background: linear-gradient(145deg, #0d0d0d, #171717);
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6),
+                  inset 0 0 20px rgba(0,114,255,0.3);
       padding: 40px;
       width: 300px;
       text-align: center;
       transition: all 0.4s ease;
     }
 
+    /* Animación al pasar el cursor sobre el plan */
     .plan:hover {
       transform: translateY(-10px) scale(1.05);
       box-shadow: 0 20px 40px rgba(0,114,255,0.6);
     }
 
+    /* Precios */
     .price {
       color: #00e1ff;
       font-size: 1.5rem;
@@ -123,6 +148,7 @@
       text-shadow: 0 0 10px #00e1ff;
     }
 
+    /* Listas de beneficios */
     ul {
       list-style: none;
       padding: 0;
@@ -135,7 +161,7 @@
       color: #ff9900;
     }
 
-    /* === CTA === */
+    /* Sección CTA debajo del video */
     .cta-video {
       text-align: center;
       margin: 60px auto;
@@ -148,7 +174,7 @@
       margin-bottom: 20px;
     }
 
-    /* === CONTADOR DE USUARIOS === */
+    /* Contador de usuarios */
     .user-counter {
       display: flex;
       flex-direction: column;
@@ -170,9 +196,9 @@
       margin-top: 5px;
     }
 
-    /* === MODAL PROMOCIONAL === */
+    /* Modal (ventana emergente) promocional */
     .promo-modal {
-      display: none;
+      display: none; /* Oculta por defecto */
       position: fixed;
       z-index: 9999;
       top: 0; left: 0;
@@ -183,6 +209,7 @@
       animation: fadeIn 0.8s ease;
     }
 
+    /* Contenido dentro del modal */
     .promo-content {
       position: relative;
       background: linear-gradient(145deg, #0d0d0d, #171717);
@@ -194,10 +221,19 @@
       animation: pulseGlow 3s infinite ease-in-out;
     }
 
+    /* Títulos dentro del modal */
     .promo-content h2 { color: #00e1ff; margin-bottom: 15px; }
     .promo-content p { color: #ccc; margin-bottom: 25px; }
-    #countdown { color: #ff4444; font-weight: 700; font-size: 1.3rem; margin-top: 10px; }
 
+    /* Cuenta regresiva */
+    #countdown {
+      color: #ff4444;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    /* Botón “X” para cerrar el modal */
     .close-x {
       position: absolute;
       top: 10px; right: 15px;
@@ -209,6 +245,7 @@
 
     .close-x:hover { transform: scale(1.2); }
 
+    /* Pie de página */
     footer {
       text-align: center;
       padding: 40px;
@@ -219,23 +256,32 @@
 
     footer a { color: #00c6ff; text-decoration: none; }
     footer a:hover { color: #00e1ff; }
+
+    /* Animación general */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ENCABEZADO -->
   <header><img src="img/logo.png" alt="Logo SocialTrove"></header>
 
+  <!-- TITULAR PRINCIPAL -->
   <h1>Asistente de Guía Inteligente</h1>
   <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
 
+  <!-- SECCIÓN: PARA QUIÉN ES ESTE SISTEMA -->
   <div class="for-who">
     <h2>¿Para quién es este sistema?</h2>
-    <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
-    ❌ Pasan horas contestando mensajes sin resultados.<br>
-    ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br>
-    🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
+    <p>❌ Negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
+       ❌ Pasan horas contestando mensajes sin resultados.<br>
+       🚀 <strong>Si quieres automatizar y aumentar tus conversiones, esto es para ti.</strong></p>
   </div>
 
+  <!-- SECCIÓN DE VIDEO -->
   <section class="video-section">
     <h2>🎥 Mira cómo funciona</h2>
     <div class="video-container">
@@ -245,7 +291,7 @@
     </div>
   </section>
 
-  <!-- CTA DEBAJO DEL VIDEO -->
+  <!-- CTA (Botón de acción debajo del video) -->
   <div class="cta-video">
     <p>¿Listo para implementar tu asistente hoy?</p>
     <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
@@ -258,42 +304,49 @@
     <div class="counter-label">personas ya están utilizando el asistente inteligente</div>
   </div>
 
-  <!-- PLANES -->
+  <!-- SECCIÓN DE PLANES -->
   <div class="plans" id="planes">
+    <!-- Plan Básico -->
     <div class="plan">
       <h2>Plan Básico</h2>
       <p class="price">$49 / mes</p>
       <ul>
-        <li>Configuración de Asistente IA</li>
-        <li>1 asistente personalizado</li>
+        <li>1 Asistente IA personalizado</li>
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20Básico%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20Básico." target="_blank">Quiero este plan</a>
     </div>
 
+    <!-- Plan PRO -->
     <div class="plan">
       <h2>Plan PRO</h2>
       <p class="price">$85 / mes</p>
       <ul>
         <li>Todo en el Plan Básico</li>
         <li>Optimización de respuestas IA</li>
-        <li>Reportes semanales de rendimiento</li>
+        <li>Reportes semanales</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20PRO%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20PRO." target="_blank">Quiero este plan</a>
     </div>
 
+    <!-- Plan ELITE -->
     <div class="plan">
       <h2>Plan ELITE</h2>
       <p class="price">$90 / mes</p>
       <ul>
         <li>Todo en el Plan PRO</li>
         <li>2 asistentes personalizados</li>
-        <li>Gestión avanzada de leads</li>
-        <li>Soporte VIP 24/7 con prioridad máxima</li>
+        <li>Soporte VIP 24/7</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20ELITE%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20ELITE." target="_blank">Quiero este plan</a>
     </div>
+  </div>
+
+  <!-- SECCIÓN DE DESCARGA DE EBOOK -->
+  <div class="cta-video">
+    <p>📘 Descarga nuestro eBook gratuito: <strong>“Cómo dominar ChatGPT para tu negocio”</strong></p>
+    <center><a href="docs/ebook-chatgpt.pdf" class="btn" download>Descargar eBook</a></center>
   </div>
 
   <!-- MODAL PROMOCIONAL -->
@@ -301,13 +354,13 @@
     <div class="promo-content">
       <span class="close-x" id="closeX">&times;</span>
       <h2>🔥 Promoción Especial 🔥</h2>
-      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br>
-      Oferta exclusiva disponible durante las próximas:</p>
+      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.</p>
       <div id="countdown">24:00:00</div><br>
-      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE%20por%2057%20USD." class="btn aprovecha-btn" target="_blank">Aprovechar ahora</a>
+      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE." class="btn aprovecha-btn" target="_blank">Aprovechar ahora</a>
     </div>
   </div>
 
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>© 2025 SocialTrove - Todos los derechos reservados</p>
     <a href="privacidad.html" target="_blank">Política de Privacidad</a> |
@@ -315,28 +368,37 @@
   </footer>
 
   <script>
-    // === MODAL ===
+    // ======== SCRIPTS ========
+
+    // Referencias del modal
     const modal = document.getElementById('promoModal');
     const video = document.getElementById('promoVideo');
     const closeX = document.getElementById('closeX');
-    let shown = false;
+    let shown = false; // Controla si el modal ya se mostró
 
+    // Función para abrir el modal
     function openModal() { modal.style.display = 'flex'; }
+
+    // Función para cerrar el modal
     function closeModal() { modal.style.display = 'none'; }
 
+    // Cierra el modal al hacer clic en la X o fuera del contenido
     closeX.addEventListener('click', closeModal);
     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // Abre el modal automáticamente 2.5 segundos después de cargar la página
     window.addEventListener('load', () => setTimeout(openModal, 2500));
 
+    // También abre el modal cuando el video llega a la mitad
     video.addEventListener('timeupdate', () => {
       if (!shown && video.currentTime >= video.duration / 2) {
         openModal(); shown = true;
       }
     });
 
-    // === CUENTA REGRESIVA 24H (PERSISTENTE) ===
+    // ======== CUENTA REGRESIVA 24 HORAS ========
     const countdownEl = document.getElementById('countdown');
-    const hours = 24 * 60 * 60 * 1000;
+    const hours = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
 
     function startCountdown() {
       let endTime = localStorage.getItem('promoEndTime');
@@ -362,22 +424,25 @@
     }
     startCountdown();
 
-    // === CONTADOR DE USUARIOS ===
+    // ======== CONTADOR DE USUARIOS ========
     const userCountEl = document.getElementById('userCount');
-    let userCount = localStorage.getItem('userCount') ? parseInt(localStorage.getItem('userCount')) : 97;
+    let userCount = localStorage.getItem('userCount')
+      ? parseInt(localStorage.getItem('userCount'))
+      : 97; // Valor inicial ficticio
     localStorage.setItem('userCount', userCount);
     userCountEl.textContent = userCount.toLocaleString();
 
+    // Función para incrementar el contador
     function incrementarContador() {
       userCount++;
       localStorage.setItem('userCount', userCount);
       userCountEl.textContent = userCount.toLocaleString();
     }
 
+    // Incrementa el contador al hacer clic en cualquier botón de plan o promoción
     document.querySelectorAll('.plan-btn').forEach(btn => {
       btn.addEventListener('click', incrementarContador);
     });
-
     document.querySelector('.aprovecha-btn').addEventListener('click', incrementarContador);
   </script>
 </body>
