@@ -1,449 +1,434 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Define el tipo de documento y el idioma principal -->
-  <meta charset="UTF-8">
-  <!-- Ajusta el sitio para que sea responsivo en móviles -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Título que se muestra en la pestaña del navegador -->
-  <title>Asistente de Guía Inteligente - SocialTrove</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aprende a manejar la ansiedad en 30 días – Ebook</title>
+<meta name="description" content="Landing page del ebook 'Aprende a manejar la ansiedad en 30 días con ejercicios diarios de respiración, journaling y reflexión'. Método cálido, realista y guiado para reconectar con la calma interior sin depender de pastillas ni terapias complejas."/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0e10;
+  --bg-soft:#151518;
+  --text:#f4f5f7;
+  --muted:#c9cbd3;
+  --gold:#C8A951;  /* dorado suave */
+  --accent:#e7d7a9;
+  --ok:#46c38f;
+  --err:#f26d6d;
+  --card:#111114;
+  --shadow: 0 20px 40px rgba(0,0,0,.35);
+}
 
-  <style>
-    /* ======== ESTILOS GENERALES ======== */
+/* Reset fino */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 50% 20%, #2a2a2f 0%, #131317 55%, #0c0c0f 100%),
+              url('./imgs/fondo-bruma-1920x1080.jpg') center/cover no-repeat fixed;
+  line-height:1.6;
+}
 
-    /* Habilita el scroll suave al hacer clic en enlaces ancla */
-    html { scroll-behavior: smooth; }
+/* Utilidades */
+.container{width:min(1200px,92%);margin-inline:auto}
+.grid{display:grid;gap:2rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.12);
+  padding:.95rem 1.25rem;border-radius:.75rem;
+  background:linear-gradient(180deg, #1d1d22 0%, #121216 100%);
+  color:var(--text);text-decoration:none;font-weight:600;
+  transition:all .25s ease; box-shadow:var(--shadow);
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.25)}
+.btn--gold{background:linear-gradient(180deg, #d9c37a 0%, #bda461 100%);color:#1b1b1f;border:0}
+.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
+.badge{display:inline-block;padding:.3rem .6rem;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:.78rem;color:var(--muted)}
+h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.2;margin:0 0 .75rem}
+h1{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:.6px;color:var(--accent)}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+h3{font-size:clamp(1.1rem,2.4vw,1.4rem)}
+p{margin:.35rem 0 1rem}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);color:var(--muted)}
 
-    /* Estilos base del cuerpo del sitio */
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(145deg, #0a0a0a, #1a1a1a); /* Fondo degradado oscuro */
-      color: #fff; /* Texto blanco */
-      overflow-x: hidden; /* Evita scroll horizontal */
-    }
+/* Hero */
+.hero{
+  padding: clamp(48px, 8vw, 96px) 0 56px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.hero__wrap{display:grid;grid-template-columns: 1.1fr .9fr;gap:3rem;align-items:center}
+.hero__card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:1rem;box-shadow:var(--shadow)
+}
+.cover{
+  width:100%;aspect-ratio:3/4;border-radius:12px;
+  background:#202026 url('./imgs/portada-ansiedad.jpg') center/cover no-repeat;
+  border:1px solid rgba(255,255,255,.12);
+}
+.hero .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin:.75rem 0 1.25rem}
+.checks{display:grid;gap:.5rem;margin-top:.75rem}
+.checks li{list-style:none;display:flex;gap:.6rem;align-items:flex-start}
+.checks li:before{content:"";width:.95rem;height:.95rem;border-radius:3px;background:var(--ok);margin-top:.35rem;flex:0 0 .95rem}
 
-    /* Encabezado principal */
-    header {
-      text-align: center;
-      margin-top: 40px;
-      animation: fadeIn 1.2s ease forwards; /* Animación de aparición */
-    }
+/* Sections */
+.section{padding: clamp(48px, 8vw, 88px) 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.card{
+  background:linear-gradient(180deg, #141419 0%, #0e0e12 100%);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.25rem;box-shadow:var(--shadow)
+}
 
-    /* Logo */
-    header img {
-      width: 200px;
-      filter: drop-shadow(0 0 15px rgba(0,198,255,0.7)); /* Efecto de brillo azul */
-    }
+/* Benefits */
+.benefits{grid-template-columns:repeat(3,1fr)}
+.benefit{padding:1.1rem;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0f0f13}
+.benefit h3{color:var(--gold)}
 
-    /* Título principal */
-    h1 {
-      font-size: 2.8rem;
-      text-align: center;
-      margin-top: 30px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff); /* Degradado azul */
-      -webkit-background-clip: text; /* Aplica el degradado al texto */
-      -webkit-text-fill-color: transparent; /* Hace transparente el texto para mostrar el degradado */
-      text-shadow: 0 0 25px rgba(0, 114, 255, 0.6);
-    }
+/* Inside */
+.inside{grid-template-columns:repeat(2,1fr)}
+.inside .list{display:grid;gap:.8rem}
+.inside .list li{list-style:square;margin-left:1.1rem}
 
-    /* Párrafos generales */
-    p {
-      text-align: center;
-      color: #ccc;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
+/* Testimonios */
+.quotes{grid-template-columns:repeat(3,1fr)}
+.quote{
+  background:#0f0f13;border:1px solid rgba(255,255,255,.08);
+  padding:1rem;border-radius:12px;font-size:.98rem
+}
+.quote footer{opacity:.8;margin-top:.5rem}
 
-    /* Contenedores de secciones (quién es, video, contador) */
-    .for-who, .video-section, .user-counter {
-      max-width: 900px;
-      margin: 80px auto;
-      text-align: center;
-      background: linear-gradient(145deg, #0d0d0d, #171717);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6),
-                  inset 0 0 20px rgba(0,114,255,0.3);
-      animation: fadeIn 1.2s ease forwards;
-    }
+/* Oferta */
+.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.price{
+  display:flex;gap:1rem;align-items:baseline;margin:1rem 0 1.25rem
+}
+.price .old{color:#8b8b94;text-decoration:line-through}
+.price .new{font-size:2rem;font-weight:800;color:#111;background:linear-gradient(180deg,#d9c37a,#bda461);padding:.1rem .5rem;border-radius:.4rem}
 
-    /* Títulos de secciones */
-    .for-who h2, .video-section h2, .user-counter h2 {
-      color: #00c6ff;
-      font-size: 2rem;
-      margin-bottom: 25px;
-    }
+/* Form */
+.form{display:grid;gap:.8rem}
+.input, select{
+  width:100%;padding:.9rem 1rem;border-radius:.6rem;background:#0c0c10;color:var(--text);
+  border:1px solid rgba(255,255,255,.14);outline:0;transition:border .2s
+}
+.input:focus{border-color:var(--gold)}
+.form small{color:#aab;opacity:.9}
+.error{color:var(--err);font-size:.9rem;display:none}
+.success{display:none;border:1px solid rgba(70,195,143,.35);background:rgba(70,195,143,.08);padding:.8rem;border-radius:.6rem}
 
-    /* Videos */
-    .video-container video {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,114,255,0.3);
-    }
+/* FAQ */
+.faq{max-width:900px;margin-inline:auto}
+.faq details{
+  background:#0f0f13;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem;margin:.75rem 0
+}
+.faq summary{cursor:pointer;font-weight:600}
 
-    /* Botones */
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      color: white;
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0,114,255,0.5);
-      transition: all 0.3s ease;
-      animation: pulseGlow 2.5s infinite ease-in-out; /* Animación luminosa */
-    }
+/* Footer */
+footer{padding:28px 0;color:#a8abb3;font-size:.92rem}
 
-    /* Efecto hover sobre botones */
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(0,198,255,0.8);
-    }
+/* Sticky CTA */
+.cta-bar{
+  position:sticky;bottom:0;background:rgba(14,14,16,.86);backdrop-filter:blur(8px);
+  border-top:1px solid rgba(255,255,255,.08);padding:.7rem 0;z-index:40
+}
+.cta-bar .container{display:flex;gap:1rem;align-items:center;justify-content:space-between}
+.timer{font-variant-numeric:tabular-nums}
 
-    /* Animación de pulso */
-    @keyframes pulseGlow {
-      0%,100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
-      50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
-    }
-
-    /* Sección de planes */
-    .plans {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin: 60px auto;
-      max-width: 1200px;
-      padding: 20px;
-    }
-
-    /* Tarjeta de cada plan */
-    .plan {
-      background: linear-gradient(145deg, #0d0d0d, #171717);
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6),
-                  inset 0 0 20px rgba(0,114,255,0.3);
-      padding: 40px;
-      width: 300px;
-      text-align: center;
-      transition: all 0.4s ease;
-    }
-
-    /* Animación al pasar el cursor sobre el plan */
-    .plan:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0,114,255,0.6);
-    }
-
-    /* Precios */
-    .price {
-      color: #00e1ff;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      text-shadow: 0 0 10px #00e1ff;
-    }
-
-    /* Listas de beneficios */
-    ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      color: #bbb;
-    }
-
-    ul li::before {
-      content: "⚡ ";
-      color: #ff9900;
-    }
-
-    /* Sección CTA debajo del video */
-    .cta-video {
-      text-align: center;
-      margin: 60px auto;
-      max-width: 700px;
-    }
-
-    .cta-video p {
-      font-size: 1.3rem;
-      color: #00c6ff;
-      margin-bottom: 20px;
-    }
-
-    /* Contador de usuarios */
-    .user-counter {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .counter-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #00e1ff;
-      text-shadow: 0 0 25px rgba(0,198,255,0.7);
-      margin-top: 10px;
-    }
-
-    .counter-label {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 5px;
-    }
-
-    /* Modal (ventana emergente) promocional */
-    .promo-modal {
-      display: none; /* Oculta por defecto */
-      position: fixed;
-      z-index: 9999;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.8s ease;
-    }
-
-    /* Contenido dentro del modal */
-    .promo-content {
-      position: relative;
-      background: linear-gradient(145deg, #0d0d0d, #171717);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      max-width: 500px;
-      box-shadow: 0 0 30px rgba(0,198,255,0.6);
-      animation: pulseGlow 3s infinite ease-in-out;
-    }
-
-    /* Títulos dentro del modal */
-    .promo-content h2 { color: #00e1ff; margin-bottom: 15px; }
-    .promo-content p { color: #ccc; margin-bottom: 25px; }
-
-    /* Cuenta regresiva */
-    #countdown {
-      color: #ff4444;
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin-top: 10px;
-    }
-
-    /* Botón “X” para cerrar el modal */
-    .close-x {
-      position: absolute;
-      top: 10px; right: 15px;
-      font-size: 24px;
-      color: #ff4444;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .close-x:hover { transform: scale(1.2); }
-
-    /* Pie de página */
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #888;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    footer a { color: #00c6ff; text-decoration: none; }
-    footer a:hover { color: #00e1ff; }
-
-    /* Animación general */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* Responsive */
+@media (max-width:980px){
+  .hero__wrap,.offer{grid-template-columns:1fr}
+  .benefits{grid-template-columns:1fr}
+  .quotes{grid-template-columns:1fr}
+  .inside{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-  <!-- ENCABEZADO -->
-  <header><img src="img/logo.png" alt="Logo SocialTrove"></header>
+<header class="hero">
+  <div class="container hero__wrap">
+    <div>
+      <span class="badge">Programa de 30 días • Método cálido y guiado</span>
+      <h1>Aprende a manejar la ansiedad en 30 días</h1>
+      <p class="lead">con ejercicios diarios de respiración, journaling y reflexión. Un acompañamiento realista y humano para volver a sentir calma, presencia y equilibrio sin depender de soluciones complejas.</p>
 
-  <!-- TITULAR PRINCIPAL -->
-  <h1>Asistente de Guía Inteligente</h1>
-  <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
+      <div class="meta">
+        <span class="badge">12+ mil palabras</span>
+        <span class="badge">Plantillas y checklists</span>
+        <span class="badge">Formato PDF/EPUB</span>
+        <span class="badge">Garantía de satisfacción</span>
+      </div>
 
-  <!-- SECCIÓN: PARA QUIÉN ES ESTE SISTEMA -->
-  <div class="for-who">
-    <h2>¿Para quién es este sistema?</h2>
-    <p>❌ Negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
-       ❌ Pasan horas contestando mensajes sin resultados.<br>
-       🚀 <strong>Si quieres automatizar y aumentar tus conversiones, esto es para ti.</strong></p>
-  </div>
-
-  <!-- SECCIÓN DE VIDEO -->
-  <section class="video-section">
-    <h2>🎥 Mira cómo funciona</h2>
-    <div class="video-container">
-      <video id="promoVideo" controls autoplay muted>
-        <source src="video/Presentacion.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <!-- CTA (Botón de acción debajo del video) -->
-  <div class="cta-video">
-    <p>¿Listo para implementar tu asistente hoy?</p>
-    <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
-  </div>
-
-  <!-- CONTADOR DE USUARIOS -->
-  <div class="user-counter">
-    <h2>Usuarios Activos del Servicio</h2>
-    <div id="userCount" class="counter-number">0</div>
-    <div class="counter-label">personas ya están utilizando el asistente inteligente</div>
-  </div>
-
-  <!-- SECCIÓN DE PLANES -->
-  <div class="plans" id="planes">
-    <!-- Plan Básico -->
-    <div class="plan">
-      <h2>Plan Básico</h2>
-      <p class="price">$49 / mes</p>
-      <ul>
-        <li>1 Asistente IA personalizado</li>
-        <li>Respuestas automáticas 24/7</li>
-        <li>Soporte por WhatsApp</li>
+      <ul class="checks">
+        <li>Respiraciones guiadas para calmar el cuerpo.</li>
+        <li>Journaling terapéutico para ordenar la mente.</li>
+        <li>Mindfulness práctico para volver al presente.</li>
+        <li>Ejercicios de perdón y autocompasión.</li>
+        <li>Rutinas simples para mantener la calma a largo plazo.</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20Básico." target="_blank">Quiero este plan</a>
+
+      <div style="display:flex;gap:.8rem;margin-top:1.3rem">
+        <a href="#comprar" class="btn btn--gold">Quiero mi copia ahora</a>
+        <a href="#indice" class="btn btn--ghost">Ver qué incluye</a>
+      </div>
     </div>
 
-    <!-- Plan PRO -->
-    <div class="plan">
-      <h2>Plan PRO</h2>
-      <p class="price">$85 / mes</p>
-      <ul>
-        <li>Todo en el Plan Básico</li>
-        <li>Optimización de respuestas IA</li>
-        <li>Reportes semanales</li>
+    <div class="hero__card">
+      <div class="cover" title="Portada del ebook"></div>
+      <div style="padding: .6rem 1rem .4rem">
+        <p style="margin:.25rem 0;color:var(--muted)">Edición digital inmediata • Lectura en cualquier dispositivo</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h2>¿Por qué este ebook funciona?</h2>
+    <p class="lead">Porque no te exige perfección. Te guía con constancia amorosa y pasos pequeños que puedes sostener en la vida real.</p>
+
+    <div class="grid benefits">
+      <div class="benefit">
+        <h3>Respirar para calmar</h3>
+        <p>Protocolos simples como 4-7-8 y respiración cuadrada para bajar el ritmo en minutos y recuperar sensación de seguridad.</p>
+      </div>
+      <div class="benefit">
+        <h3>Escribir para liberar</h3>
+        <p>Plantillas de journaling que convierten el ruido mental en claridad. No necesitas “escribir bonito”, solo honestidad.</p>
+      </div>
+      <div class="benefit">
+        <h3>Reprogramar la calma</h3>
+        <p>Rutinas matutinas y nocturnas, hábitos de presencia y afirmaciones para sostener la serenidad en el tiempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="indice" class="section">
+  <div class="container grid inside">
+    <div>
+      <h2>Lo que encontrarás dentro</h2>
+      <p class="lead">Un mapa de 30 días dividido en 5 bloques prácticos, con ejercicios diarios, reflexiones y afirmaciones.</p>
+      <ul class="list">
+        <li>Bloque 1: Calmar el cuerpo (Días 1–6) – respiraciones y relajación.</li>
+        <li>Bloque 2: Calmar la mente (Días 7–12) – observación y diálogo interno.</li>
+        <li>Bloque 3: Conectar con el presente (Días 13–18) – mindfulness y sentidos.</li>
+        <li>Bloque 4: Liberar emociones (Días 19–24) – perdón, aceptación, autocompasión.</li>
+        <li>Bloque 5: Reprogramar la calma (Días 25–30) – hábitos y celebración.</li>
+        <li>Extras: plantillas de journaling, checklist “Qué hacer cuando aparece la ansiedad”, respiraciones rápidas, recursos recomendados.</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20PRO." target="_blank">Quiero este plan</a>
     </div>
-
-    <!-- Plan ELITE -->
-    <div class="plan">
-      <h2>Plan ELITE</h2>
-      <p class="price">$90 / mes</p>
-      <ul>
-        <li>Todo en el Plan PRO</li>
-        <li>2 asistentes personalizados</li>
-        <li>Soporte VIP 24/7</li>
+    <div class="card">
+      <h3>Muestra del índice ampliado</h3>
+      <ul class="list" style="margin-top:.5rem">
+        <li>Introducción: “Respira, estás a salvo”.</li>
+        <li>Cómo usar la guía: constancia amorosa y ritual diario.</li>
+        <li>Microejercicios día a día con tiempos sugeridos.</li>
+        <li>Reflexiones de cierre por bloque y frases ancla.</li>
+        <li>Integración final: cómo continuar después de los 30 días.</li>
       </ul>
-      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20ELITE." target="_blank">Quiero este plan</a>
+      <p style="margin-top:.75rem;color:var(--muted)">Recibirás el ebook en tu correo inmediatamente después del pago.</p>
     </div>
   </div>
+</section>
 
-  <!-- SECCIÓN DE DESCARGA DE EBOOK -->
-  <div class="cta-video">
-    <p>📘 Descarga nuestro eBook gratuito: <strong>“Cómo dominar ChatGPT para tu negocio”</strong></p>
-    <center><a href="docs/ebook-chatgpt.pdf" class="btn" download>Descargar eBook</a></center>
-  </div>
-
-  <!-- MODAL PROMOCIONAL -->
-  <div class="promo-modal" id="promoModal">
-    <div class="promo-content">
-      <span class="close-x" id="closeX">&times;</span>
-      <h2>🔥 Promoción Especial 🔥</h2>
-      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.</p>
-      <div id="countdown">24:00:00</div><br>
-      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE." class="btn aprovecha-btn" target="_blank">Aprovechar ahora</a>
+<section class="section">
+  <div class="container">
+    <h2>Lo que dicen las lectoras</h2>
+    <div class="grid quotes">
+      <blockquote class="quote">
+        “Por primera vez sentí que alguien me acompañaba de verdad. Los ejercicios son simples y funcionaron desde la primera semana.”
+        <footer>— Laura G.</footer>
+      </blockquote>
+      <blockquote class="quote">
+        “La respiración 4-7-8 y las pausas de escritura me salvaron en días muy difíciles. El tono del libro es humano y cálido.”
+        <footer>— Andrea P.</footer>
+      </blockquote>
+      <blockquote class="quote">
+        “No es teoría. Son pasos pequeños que pude sostener incluso con trabajo y familia. Lo recomiendo sin dudar.”
+        <footer>— Daniela R.</footer>
+      </blockquote>
     </div>
   </div>
+</section>
 
-  <!-- PIE DE PÁGINA -->
-  <footer>
-    <p>© 2025 SocialTrove - Todos los derechos reservados</p>
-    <a href="privacidad.html" target="_blank">Política de Privacidad</a> |
-    <a href="terminos.html" target="_blank">Términos y Condiciones</a>
-  </footer>
+<section class="section">
+  <div class="container offer">
+    <div>
+      <h2 id="comprar">Obtén acceso hoy</h2>
+      <p class="lead">Copia digital + actualizaciones futuras + plantillas editables.</p>
+      <div class="price">
+        <span class="old">$29</span>
+        <span class="new">$12</span>
+        <span class="badge">Oferta de lanzamiento</span>
+      </div>
+      <ul class="checks">
+        <li>Ebook en PDF y EPUB.</li>
+        <li>Plantillas de journaling y checklist imprimibles.</li>
+        <li>Garantía de 7 días: satisfacción o reembolso.</li>
+      </ul>
+      <p style="margin-top:.6rem;color:var(--muted)">Precio en USD. Pago seguro. Entrega inmediata por correo.</p>
+    </div>
 
-  <script>
-    // ======== SCRIPTS ========
+    <div class="card">
+      <h3>Completa tus datos para recibir el enlace de compra</h3>
+      <p class="lead" style="font-size:.98rem">Te enviaremos el enlace de pago y la descarga automática del ebook.</p>
 
-    // Referencias del modal
-    const modal = document.getElementById('promoModal');
-    const video = document.getElementById('promoVideo');
-    const closeX = document.getElementById('closeX');
-    let shown = false; // Controla si el modal ya se mostró
+      <form id="leadForm" class="form" novalidate>
+        <div>
+          <label for="name">Nombre</label>
+          <input id="name" name="name" class="input" placeholder="Tu nombre" required/>
+          <div class="error" id="errName">Escribe tu nombre.</div>
+        </div>
+        <div>
+          <label for="email">Correo</label>
+          <input id="email" name="email" class="input" placeholder="tucorreo@dominio.com" required/>
+          <div class="error" id="errEmail">Escribe un correo válido.</div>
+        </div>
+        <div>
+          <label for="country">País</label>
+          <select id="country" class="input">
+            <option value="">Selecciona…</option>
+            <option>Colombia</option><option>México</option><option>Perú</option>
+            <option>Chile</option><option>Argentina</option><option>España</option>
+            <option>Estados Unidos</option><option>Otro</option>
+          </select>
+        </div>
+        <button class="btn btn--gold" type="submit">Enviar y recibir enlace</button>
+        <small>Al continuar aceptas recibir el enlace de pago y materiales del ebook. Puedes darte de baja cuando quieras.</small>
+        <div class="success" id="okMsg">Gracias. Revisa tu correo: te enviamos el enlace de compra y la descarga del ebook.</div>
+      </form>
+    </div>
+  </div>
+</section>
 
-    // Función para abrir el modal
-    function openModal() { modal.style.display = 'flex'; }
+<section class="section">
+  <div class="container">
+    <h2>Sobre el autor</h2>
+    <p class="lead">Yirman Moreno, fundador de Código Dorado IA. Integra respiración, escritura terapéutica y presencia con una visión tecnológica consciente para facilitar procesos de calma y autoconocimiento.</p>
+  </div>
+</section>
 
-    // Función para cerrar el modal
-    function closeModal() { modal.style.display = 'none'; }
+<section class="section">
+  <div class="container faq">
+    <h2>Preguntas frecuentes</h2>
+    <details>
+      <summary>¿En qué formato recibo el ebook?</summary>
+      <p>PDF y EPUB para que lo leas en móvil, tablet o computador. Enlace de descarga inmediata por correo.</p>
+    </details>
+    <details>
+      <summary>¿Qué pasa si no me funciona?</summary>
+      <p>Tienes 7 días de garantía. Si sientes que no es para ti, escríbenos y te devolvemos el dinero.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto tiempo necesito por día?</summary>
+      <p>De 10 a 15 minutos. El método prioriza constancia amorosa sobre perfección.</p>
+    </details>
+    <details>
+      <summary>¿Necesito experiencia previa?</summary>
+      <p>No. Todo está explicado paso a paso con un lenguaje cálido y cercano.</p>
+    </details>
+  </div>
+</section>
 
-    // Cierra el modal al hacer clic en la X o fuera del contenido
-    closeX.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+<section class="section">
+  <div class="container card" style="text-align:center">
+    <h2>Garantía de tranquilidad</h2>
+    <p class="lead">Si el ebook no te ayuda a sentir más calma en 7 días, te devolvemos el 100% del dinero. Sin preguntas.</p>
+    <a href="#comprar" class="btn btn--gold">Obtener ahora</a>
+  </div>
+</section>
 
-    // Abre el modal automáticamente 2.5 segundos después de cargar la página
-    window.addEventListener('load', () => setTimeout(openModal, 2500));
+<div class="cta-bar">
+  <div class="container">
+    <div>
+      <strong>Oferta de lanzamiento</strong> · Quedan <span class="timer" id="timer">00:14:59</span>
+    </div>
+    <div>
+      <a href="#comprar" class="btn btn--gold">Descargar ebook</a>
+    </div>
+  </div>
+</div>
 
-    // También abre el modal cuando el video llega a la mitad
-    video.addEventListener('timeupdate', () => {
-      if (!shown && video.currentTime >= video.duration / 2) {
-        openModal(); shown = true;
-      }
-    });
+<footer>
+  <div class="container" style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center">
+    <div>© <span id="year"></span> Código Dorado IA — Todos los derechos reservados.</div>
+    <div><a href="#" style="color:#a8abb3;text-decoration:none">Política de privacidad</a> · <a href="#" style="color:#a8abb3;text-decoration:none">Términos</a></div>
+  </div>
+</footer>
 
-    // ======== CUENTA REGRESIVA 24 HORAS ========
-    const countdownEl = document.getElementById('countdown');
-    const hours = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+<script>
+/* Año dinámico */
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    function startCountdown() {
-      let endTime = localStorage.getItem('promoEndTime');
-      const now = new Date().getTime();
-      if (!endTime || now > endTime) {
-        endTime = now + hours;
-        localStorage.setItem('promoEndTime', endTime);
-      }
+/* Validación simple y almacenamiento local del lead */
+const form = document.getElementById('leadForm');
+const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+form?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const errName = document.getElementById('errName');
+  const errEmail = document.getElementById('errEmail');
+  const okMsg = document.getElementById('okMsg');
 
-      setInterval(() => {
-        const current = new Date().getTime();
-        let remaining = endTime - current;
-        if (remaining <= 0) {
-          endTime = new Date().getTime() + hours;
-          localStorage.setItem('promoEndTime', endTime);
-          remaining = hours;
-        }
-        const h = String(Math.floor(remaining / (1000*60*60))).padStart(2,'0');
-        const m = String(Math.floor((remaining%(1000*60*60))/(1000*60))).padStart(2,'0');
-        const s = String(Math.floor((remaining%(1000*60))/1000)).padStart(2,'0');
-        countdownEl.textContent = `${h}:${m}:${s}`;
-      }, 1000);
+  let valid = true;
+  if(!name.value.trim()){ errName.style.display='block'; valid=false } else errName.style.display='none';
+  if(!emailRx.test(email.value.trim())){ errEmail.style.display='block'; valid=false } else errEmail.style.display='none';
+
+  if(!valid) return;
+
+  // Guardar localmente (puedes integrar luego tu endpoint)
+  const leads = JSON.parse(localStorage.getItem('leads_ansiedad')||'[]');
+  leads.push({name:name.value.trim(), email:email.value.trim(), country:document.getElementById('country').value, at:new Date().toISOString()});
+  localStorage.setItem('leads_ansiedad', JSON.stringify(leads));
+
+  // Simulación de envío y respuesta
+  okMsg.style.display='block';
+  form.querySelector('button[type="submit"]').disabled = true;
+  setTimeout(()=>{ 
+    // Redirige al pago o a una página de gracias
+    // window.location.href = 'https://tu-pasarela-de-pago.com/enlace';
+  }, 1200);
+});
+
+/* Contador de urgencia: 15 minutos por sesión */
+(function(){
+  const el = document.getElementById('timer');
+  const KEY = 'timer_deadline_ansiedad';
+  const now = Date.now();
+  let deadline = localStorage.getItem(KEY);
+  if(!deadline){ deadline = now + 15*60*1000; localStorage.setItem(KEY, deadline); }
+  deadline = +deadline;
+
+  function tick(){
+    const diff = Math.max(0, deadline - Date.now());
+    const m = Math.floor(diff/60000);
+    const s = Math.floor((diff%60000)/1000);
+    el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if(diff<=0){
+      // Reinicia otra ventana de 15 min para no bloquear la conversión
+      const next = Date.now()+15*60*1000;
+      localStorage.setItem(KEY, next);
     }
-    startCountdown();
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
 
-    // ======== CONTADOR DE USUARIOS ========
-    const userCountEl = document.getElementById('userCount');
-    let userCount = localStorage.getItem('userCount')
-      ? parseInt(localStorage.getItem('userCount'))
-      : 97; // Valor inicial ficticio
-    localStorage.setItem('userCount', userCount);
-    userCountEl.textContent = userCount.toLocaleString();
-
-    // Función para incrementar el contador
-    function incrementarContador() {
-      userCount++;
-      localStorage.setItem('userCount', userCount);
-      userCountEl.textContent = userCount.toLocaleString();
-    }
-
-    // Incrementa el contador al hacer clic en cualquier botón de plan o promoción
-    document.querySelectorAll('.plan-btn').forEach(btn => {
-      btn.addEventListener('click', incrementarContador);
-    });
-    document.querySelector('.aprovecha-btn').addEventListener('click', incrementarContador);
-  </script>
+/* Suavizado de scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+</script>
 </body>
 </html>
