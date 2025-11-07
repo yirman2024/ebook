@@ -1,434 +1,499 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Aprende a manejar la ansiedad en 30 días – Ebook</title>
-<meta name="description" content="Landing page del ebook 'Aprende a manejar la ansiedad en 30 días con ejercicios diarios de respiración, journaling y reflexión'. Método cálido, realista y guiado para reconectar con la calma interior sin depender de pastillas ni terapias complejas."/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0e0e10;
-  --bg-soft:#151518;
-  --text:#f4f5f7;
-  --muted:#c9cbd3;
-  --gold:#C8A951;  /* dorado suave */
-  --accent:#e7d7a9;
-  --ok:#46c38f;
-  --err:#f26d6d;
-  --card:#111114;
-  --shadow: 0 20px 40px rgba(0,0,0,.35);
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aprende a manejar la ansiedad en 30 días — Programa guiado</title>
+  <meta name="description" content="Landing page de venta del ebook: Aprende a manejar la ansiedad en 30 días con ejercicios diarios de respiración, journaling y reflexión." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-/* Reset fino */
-*{box-sizing:border-box}
-html,body{margin:0}
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-  color:var(--text);
-  background: radial-gradient(1200px 600px at 50% 20%, #2a2a2f 0%, #131317 55%, #0c0c0f 100%),
-              url('./imgs/fondo-bruma-1920x1080.jpg') center/cover no-repeat fixed;
-  line-height:1.6;
-}
-
-/* Utilidades */
-.container{width:min(1200px,92%);margin-inline:auto}
-.grid{display:grid;gap:2rem}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border:1px solid rgba(255,255,255,.12);
-  padding:.95rem 1.25rem;border-radius:.75rem;
-  background:linear-gradient(180deg, #1d1d22 0%, #121216 100%);
-  color:var(--text);text-decoration:none;font-weight:600;
-  transition:all .25s ease; box-shadow:var(--shadow);
-}
-.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.25)}
-.btn--gold{background:linear-gradient(180deg, #d9c37a 0%, #bda461 100%);color:#1b1b1f;border:0}
-.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
-.badge{display:inline-block;padding:.3rem .6rem;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:.78rem;color:var(--muted)}
-h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.2;margin:0 0 .75rem}
-h1{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:.6px;color:var(--accent)}
-h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
-h3{font-size:clamp(1.1rem,2.4vw,1.4rem)}
-p{margin:.35rem 0 1rem}
-.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);color:var(--muted)}
-
-/* Hero */
-.hero{
-  padding: clamp(48px, 8vw, 96px) 0 56px;
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.hero__wrap{display:grid;grid-template-columns: 1.1fr .9fr;gap:3rem;align-items:center}
-.hero__card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;padding:1rem;box-shadow:var(--shadow)
-}
-.cover{
-  width:100%;aspect-ratio:3/4;border-radius:12px;
-  background:#202026 url('./imgs/portada-ansiedad.jpg') center/cover no-repeat;
-  border:1px solid rgba(255,255,255,.12);
-}
-.hero .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin:.75rem 0 1.25rem}
-.checks{display:grid;gap:.5rem;margin-top:.75rem}
-.checks li{list-style:none;display:flex;gap:.6rem;align-items:flex-start}
-.checks li:before{content:"";width:.95rem;height:.95rem;border-radius:3px;background:var(--ok);margin-top:.35rem;flex:0 0 .95rem}
-
-/* Sections */
-.section{padding: clamp(48px, 8vw, 88px) 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.card{
-  background:linear-gradient(180deg, #141419 0%, #0e0e12 100%);
-  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.25rem;box-shadow:var(--shadow)
-}
-
-/* Benefits */
-.benefits{grid-template-columns:repeat(3,1fr)}
-.benefit{padding:1.1rem;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0f0f13}
-.benefit h3{color:var(--gold)}
-
-/* Inside */
-.inside{grid-template-columns:repeat(2,1fr)}
-.inside .list{display:grid;gap:.8rem}
-.inside .list li{list-style:square;margin-left:1.1rem}
-
-/* Testimonios */
-.quotes{grid-template-columns:repeat(3,1fr)}
-.quote{
-  background:#0f0f13;border:1px solid rgba(255,255,255,.08);
-  padding:1rem;border-radius:12px;font-size:.98rem
-}
-.quote footer{opacity:.8;margin-top:.5rem}
-
-/* Oferta */
-.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
-.price{
-  display:flex;gap:1rem;align-items:baseline;margin:1rem 0 1.25rem
-}
-.price .old{color:#8b8b94;text-decoration:line-through}
-.price .new{font-size:2rem;font-weight:800;color:#111;background:linear-gradient(180deg,#d9c37a,#bda461);padding:.1rem .5rem;border-radius:.4rem}
-
-/* Form */
-.form{display:grid;gap:.8rem}
-.input, select{
-  width:100%;padding:.9rem 1rem;border-radius:.6rem;background:#0c0c10;color:var(--text);
-  border:1px solid rgba(255,255,255,.14);outline:0;transition:border .2s
-}
-.input:focus{border-color:var(--gold)}
-.form small{color:#aab;opacity:.9}
-.error{color:var(--err);font-size:.9rem;display:none}
-.success{display:none;border:1px solid rgba(70,195,143,.35);background:rgba(70,195,143,.08);padding:.8rem;border-radius:.6rem}
-
-/* FAQ */
-.faq{max-width:900px;margin-inline:auto}
-.faq details{
-  background:#0f0f13;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem;margin:.75rem 0
-}
-.faq summary{cursor:pointer;font-weight:600}
-
-/* Footer */
-footer{padding:28px 0;color:#a8abb3;font-size:.92rem}
-
-/* Sticky CTA */
-.cta-bar{
-  position:sticky;bottom:0;background:rgba(14,14,16,.86);backdrop-filter:blur(8px);
-  border-top:1px solid rgba(255,255,255,.08);padding:.7rem 0;z-index:40
-}
-.cta-bar .container{display:flex;gap:1rem;align-items:center;justify-content:space-between}
-.timer{font-variant-numeric:tabular-nums}
-
-/* Responsive */
-@media (max-width:980px){
-  .hero__wrap,.offer{grid-template-columns:1fr}
-  .benefits{grid-template-columns:1fr}
-  .quotes{grid-template-columns:1fr}
-  .inside{grid-template-columns:1fr}
-}
-</style>
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --bg-2:#17181a;
+      --text:#EDEDED;
+      --muted:#BFBFC2;
+      --gold:#D4AF37;        /* dorado elegante */
+      --gold-2:#C8A951;
+      --cta:#24C288;         /* verde confianza */
+      --cta-dark:#15A971;
+      --danger:#ff5b5b;
+      --card:#1d1f23;
+      --stroke:#2c2e33;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --maxw:1160px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 18px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--cta);border:0;color:#0e1116;padding:16px 24px;border-radius:12px;font-weight:700;letter-spacing:.3px;box-shadow:var(--shadow);transition:.2s}
+    .btn:hover{background:var(--cta-dark);transform:translateY(-1px)}
+    .btn.sec{background:#23252a;color:var(--text);border:1px solid var(--stroke)}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e2127;border:1px solid var(--stroke);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:.85rem}
+    .gold{color:var(--gold)}
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    .section{padding:72px 0}
+    .section.sm{padding:40px 0}
+    .grid{display:grid;gap:22px}
+    .hero{
+      background:
+        radial-gradient(1200px 560px at 50% -10%, rgba(212,175,55,.14), transparent 60%),
+        url('imagen1/bg-textura.jpg') center/cover no-repeat,
+        linear-gradient(#121316,#0e0f12);
+      position:relative;overflow:hidden
+    }
+    .hero:after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(900px 500px at 50% 0%, rgba(255,255,255,.08), transparent 55%);
+      pointer-events:none
+    }
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .hero h1{font-family:"Playfair Display",serif;font-weight:800;letter-spacing:.3px;margin:0 0 14px;font-size:clamp(34px,5vw,56px);line-height:1.05}
+    .hero p.lead{font-size:1.12rem;color:var(--muted);margin:0 0 22px}
+    .hero .cta-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+    .cover{
+      aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--stroke);box-shadow:var(--shadow);
+      background:url('imagen1/portada-ebook.jpg') center/cover no-repeat;
+      min-height:420px
+    }
+    .trust{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px}
+    .trust img{height:32px;opacity:.85;filter:grayscale(100%)}
+    /* Secciones */
+    h2.title{font-family:"Playfair Display",serif;font-size:clamp(28px,3.6vw,40px);margin:0 0 8px}
+    .sub{color:var(--muted);margin-bottom:26px}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:22px}
+    .icon{width:28px;height:28px;flex:0 0 28px;filter:grayscale(100%) brightness(1.2)}
+    .list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .list .li{display:flex;gap:12px;padding:18px;border-radius:14px;background:#1a1c21;border:1px solid var(--stroke)}
+    .list .li h4{margin:0;font-size:1.02rem}
+    .bullets{display:grid;gap:10px}
+    .bullets li{background:transparent;padding-left:26px;position:relative}
+    .bullets li:before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,var(--gold),var(--gold-2))}
+    /* Bloque “Dentro del ebook” */
+    .inside{grid-template-columns:1.1fr .9fr}
+    .inside .chap{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .inside .chap .c{background:#181a1f;border:1px solid var(--stroke);padding:14px;border-radius:12px}
+    /* Testimonios */
+    .reviews{grid-template-columns:repeat(3,1fr)}
+    .review{background:#181a1f;border:1px solid var(--stroke);border-radius:14px;padding:18px}
+    .review .meta{display:flex;align-items:center;gap:12px;margin-top:10px}
+    .avatar{width:42px;height:42px;border-radius:999px;object-fit:cover;border:1px solid var(--stroke)}
+    /* Planes */
+    .pricing{grid-template-columns:repeat(3,1fr)}
+    .price{background:linear-gradient(#1a1c21,#15161a);border:1px solid var(--stroke);border-radius:18px;padding:22px;position:relative}
+    .price.popular{border-color:var(--gold);box-shadow:0 0 0 1px rgba(212,175,55,.25)}
+    .price h3{margin:0 0 6px}
+    .price .ammount{font-size:38px;font-weight:800}
+    .ribbon{position:absolute;right:14px;top:14px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;padding:5px 10px;border-radius:999px;font-size:.8rem;font-weight:800}
+    /* Garantía y Bonus */
+    .guarantee,.bonos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .bono{background:#17181d;border:1px solid var(--stroke);border-radius:14px;padding:18px}
+    /* FAQ */
+    .faq .item{border-bottom:1px solid var(--stroke);padding:16px 0}
+    .faq button{width:100%;text-align:left;background:transparent;border:0;color:var(--text);font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+    .faq .answer{max-height:0;overflow:hidden;transition:max-height .25s ease}
+    /* Barra pegajosa */
+    .sticky{position:sticky;bottom:0;background:rgba(15,16,18,.75);backdrop-filter:blur(8px);border-top:1px solid var(--stroke);padding:12px}
+    .sticky .row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .countdown{font-variant-numeric:tabular-nums;background:#191b20;border:1px solid var(--stroke);padding:10px 12px;border-radius:10px}
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+    .modal .box{background:var(--card);border:1px solid var(--stroke);border-radius:16px;max-width:720px;width:100%;padding:22px}
+    .modal .box h3{margin-top:0}
+    .close{cursor:pointer;border:0;background:#23252a;color:var(--text);border:1px solid var(--stroke);padding:8px 12px;border-radius:8px}
+    /* Footer */
+    footer{padding:40px 0;border-top:1px solid var(--stroke);color:var(--muted);font-size:.95rem}
+    footer a{color:var(--muted);text-decoration:underline}
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-wrap{grid-template-columns:1fr;gap:28px}
+      .inside{grid-template-columns:1fr}
+      .guarantee,.bonos{grid-template-columns:1fr}
+      .list{grid-template-columns:1fr 1fr}
+      .reviews{grid-template-columns:1fr 1fr}
+      .pricing{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .list{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
+      .hero .cta-group{flex-direction:column}
+      .countdown{margin-top:8px}
+    }
+  </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="container hero__wrap">
-    <div>
-      <span class="badge">Programa de 30 días • Método cálido y guiado</span>
-      <h1>Aprende a manejar la ansiedad en 30 días</h1>
-      <p class="lead">con ejercicios diarios de respiración, journaling y reflexión. Un acompañamiento realista y humano para volver a sentir calma, presencia y equilibrio sin depender de soluciones complejas.</p>
-
-      <div class="meta">
-        <span class="badge">12+ mil palabras</span>
-        <span class="badge">Plantillas y checklists</span>
-        <span class="badge">Formato PDF/EPUB</span>
-        <span class="badge">Garantía de satisfacción</span>
-      </div>
-
-      <ul class="checks">
-        <li>Respiraciones guiadas para calmar el cuerpo.</li>
-        <li>Journaling terapéutico para ordenar la mente.</li>
-        <li>Mindfulness práctico para volver al presente.</li>
-        <li>Ejercicios de perdón y autocompasión.</li>
-        <li>Rutinas simples para mantener la calma a largo plazo.</li>
-      </ul>
-
-      <div style="display:flex;gap:.8rem;margin-top:1.3rem">
-        <a href="#comprar" class="btn btn--gold">Quiero mi copia ahora</a>
-        <a href="#indice" class="btn btn--ghost">Ver qué incluye</a>
-      </div>
-    </div>
-
-    <div class="hero__card">
-      <div class="cover" title="Portada del ebook"></div>
-      <div style="padding: .6rem 1rem .4rem">
-        <p style="margin:.25rem 0;color:var(--muted)">Edición digital inmediata • Lectura en cualquier dispositivo</p>
-      </div>
-    </div>
-  </div>
-</header>
-
-<section class="section">
-  <div class="container">
-    <h2>¿Por qué este ebook funciona?</h2>
-    <p class="lead">Porque no te exige perfección. Te guía con constancia amorosa y pasos pequeños que puedes sostener en la vida real.</p>
-
-    <div class="grid benefits">
-      <div class="benefit">
-        <h3>Respirar para calmar</h3>
-        <p>Protocolos simples como 4-7-8 y respiración cuadrada para bajar el ritmo en minutos y recuperar sensación de seguridad.</p>
-      </div>
-      <div class="benefit">
-        <h3>Escribir para liberar</h3>
-        <p>Plantillas de journaling que convierten el ruido mental en claridad. No necesitas “escribir bonito”, solo honestidad.</p>
-      </div>
-      <div class="benefit">
-        <h3>Reprogramar la calma</h3>
-        <p>Rutinas matutinas y nocturnas, hábitos de presencia y afirmaciones para sostener la serenidad en el tiempo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="indice" class="section">
-  <div class="container grid inside">
-    <div>
-      <h2>Lo que encontrarás dentro</h2>
-      <p class="lead">Un mapa de 30 días dividido en 5 bloques prácticos, con ejercicios diarios, reflexiones y afirmaciones.</p>
-      <ul class="list">
-        <li>Bloque 1: Calmar el cuerpo (Días 1–6) – respiraciones y relajación.</li>
-        <li>Bloque 2: Calmar la mente (Días 7–12) – observación y diálogo interno.</li>
-        <li>Bloque 3: Conectar con el presente (Días 13–18) – mindfulness y sentidos.</li>
-        <li>Bloque 4: Liberar emociones (Días 19–24) – perdón, aceptación, autocompasión.</li>
-        <li>Bloque 5: Reprogramar la calma (Días 25–30) – hábitos y celebración.</li>
-        <li>Extras: plantillas de journaling, checklist “Qué hacer cuando aparece la ansiedad”, respiraciones rápidas, recursos recomendados.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Muestra del índice ampliado</h3>
-      <ul class="list" style="margin-top:.5rem">
-        <li>Introducción: “Respira, estás a salvo”.</li>
-        <li>Cómo usar la guía: constancia amorosa y ritual diario.</li>
-        <li>Microejercicios día a día con tiempos sugeridos.</li>
-        <li>Reflexiones de cierre por bloque y frases ancla.</li>
-        <li>Integración final: cómo continuar después de los 30 días.</li>
-      </ul>
-      <p style="margin-top:.75rem;color:var(--muted)">Recibirás el ebook en tu correo inmediatamente después del pago.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>Lo que dicen las lectoras</h2>
-    <div class="grid quotes">
-      <blockquote class="quote">
-        “Por primera vez sentí que alguien me acompañaba de verdad. Los ejercicios son simples y funcionaron desde la primera semana.”
-        <footer>— Laura G.</footer>
-      </blockquote>
-      <blockquote class="quote">
-        “La respiración 4-7-8 y las pausas de escritura me salvaron en días muy difíciles. El tono del libro es humano y cálido.”
-        <footer>— Andrea P.</footer>
-      </blockquote>
-      <blockquote class="quote">
-        “No es teoría. Son pasos pequeños que pude sostener incluso con trabajo y familia. Lo recomiendo sin dudar.”
-        <footer>— Daniela R.</footer>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container offer">
-    <div>
-      <h2 id="comprar">Obtén acceso hoy</h2>
-      <p class="lead">Copia digital + actualizaciones futuras + plantillas editables.</p>
-      <div class="price">
-        <span class="old">$29</span>
-        <span class="new">$12</span>
-        <span class="badge">Oferta de lanzamiento</span>
-      </div>
-      <ul class="checks">
-        <li>Ebook en PDF y EPUB.</li>
-        <li>Plantillas de journaling y checklist imprimibles.</li>
-        <li>Garantía de 7 días: satisfacción o reembolso.</li>
-      </ul>
-      <p style="margin-top:.6rem;color:var(--muted)">Precio en USD. Pago seguro. Entrega inmediata por correo.</p>
-    </div>
-
-    <div class="card">
-      <h3>Completa tus datos para recibir el enlace de compra</h3>
-      <p class="lead" style="font-size:.98rem">Te enviaremos el enlace de pago y la descarga automática del ebook.</p>
-
-      <form id="leadForm" class="form" novalidate>
-        <div>
-          <label for="name">Nombre</label>
-          <input id="name" name="name" class="input" placeholder="Tu nombre" required/>
-          <div class="error" id="errName">Escribe tu nombre.</div>
+  <!-- HERO / V above the fold -->
+  <header class="hero section">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">Nuevo programa guiado • 30 días</span>
+        <h1><span class="gold">Aprende a manejar la ansiedad</span> en 30 días</h1>
+        <p class="lead">Método cálido y realista para volver a la calma con ejercicios diarios de respiración, journaling y reflexión. Diseñado para mujeres profesionales que quieren paz sin terapias complejas.</p>
+        <div class="cta-group">
+          <a class="btn" href="#precios">Quiero empezar ahora</a>
+          <a class="btn sec" href="#que-incluye">Ver qué incluye</a>
         </div>
-        <div>
-          <label for="email">Correo</label>
-          <input id="email" name="email" class="input" placeholder="tucorreo@dominio.com" required/>
-          <div class="error" id="errEmail">Escribe un correo válido.</div>
+        <div class="trust">
+          <img src="imagen1/seguro-hotmart.svg" alt="Pago seguro" />
+          <img src="imagen1/garantia.svg" alt="Garantía" />
+          <img src="imagen1/dispositivos.svg" alt="Acceso en todos los dispositivos" />
         </div>
-        <div>
-          <label for="country">País</label>
-          <select id="country" class="input">
-            <option value="">Selecciona…</option>
-            <option>Colombia</option><option>México</option><option>Perú</option>
-            <option>Chile</option><option>Argentina</option><option>España</option>
-            <option>Estados Unidos</option><option>Otro</option>
-          </select>
+      </div>
+
+      <div class="cover" aria-label="Portada del ebook"></div>
+    </div>
+  </header>
+
+  <!-- Beneficios directos -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title center">Lo que lograrás en 30 días</h2>
+      <p class="sub center">Resultados prácticos y medibles, sin teorías complicadas.</p>
+
+      <div class="list">
+        <div class="li">
+          <img class="icon" src="imagen1/icon-respirar.svg" alt="">
+          <div>
+            <h4>Respirar para calmarte en minutos</h4>
+            <p class="muted">Aprende protocolos simples (4-7-8, box breathing y ritual nocturno) para desactivar la respuesta de alerta.</p>
+          </div>
         </div>
-        <button class="btn btn--gold" type="submit">Enviar y recibir enlace</button>
-        <small>Al continuar aceptas recibir el enlace de pago y materiales del ebook. Puedes darte de baja cuando quieras.</small>
-        <div class="success" id="okMsg">Gracias. Revisa tu correo: te enviamos el enlace de compra y la descarga del ebook.</div>
+        <div class="li">
+          <img class="icon" src="imagen1/icon-journal.svg" alt="">
+          <div>
+            <h4>Ordenar la mente con journaling</h4>
+            <p class="muted">Transforma el ruido mental en claridad con preguntas guiadas que no te toman más de 10 minutos.</p>
+          </div>
+        </div>
+        <div class="li">
+          <img class="icon" src="imagen1/icon-presente.svg" alt="">
+          <div>
+            <h4>Habitar el presente</h4>
+            <p class="muted">Ejercicios de mindfulness cotidiano para sentirte en casa dentro de ti, aun en días exigentes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dentro del ebook -->
+  <section id="que-incluye" class="section">
+    <div class="container grid inside">
+      <div>
+        <h2 class="title">Dentro del ebook</h2>
+        <p class="sub">Guía paso a paso con 5 bloques de 6 días: cuerpo, mente, presencia, liberación emocional y reprogramación de la calma.</p>
+
+        <ul class="bullets">
+          <li>Protocolos de respiración explicados de forma simple y seguros de realizar en casa.</li>
+          <li>Plantillas de journaling imprimibles y versión para notas rápidas en móvil.</li>
+          <li>Micro-prácticas para trabajo, momentos de pánico y rutina nocturna.</li>
+          <li>Frases guía y recordatorios para días difíciles.</li>
+          <li>Bonos: audio de respiración guiada y checklist de emergencia.</li>
+        </ul>
+
+        <div class="card" style="margin-top:18px">
+          <strong>Duración sugerida:</strong> 15 a 20 minutos al día.  
+          <br><strong>Acceso:</strong> descarga inmediata en PDF.  
+          <br><strong>Soporte:</strong> actualizaciones gratuitas de por vida del documento.
+        </div>
+      </div>
+
+      <div class="chap">
+        <div class="c"><strong>Bloque 1.</strong> Calmar el cuerpo. Resp. 4-7-8, caja y escaneo corporal.</div>
+        <div class="c"><strong>Bloque 2.</strong> Calmar la mente. Observadora interna, afirmaciones y escritura.</div>
+        <div class="c"><strong>Bloque 3.</strong> Presente pleno. Sentidos, caminata consciente y silencio.</div>
+        <div class="c"><strong>Bloque 4.</strong> Liberar emociones. Perdón, culpa y autocompasión.</div>
+        <div class="c"><strong>Bloque 5.</strong> Reprogramar la calma. Rutinas AM/PM y plan a largo plazo.</div>
+        <div class="c"><strong>Extras.</strong> Plantillas, checklist, bibliografía y apps recomendadas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autor -->
+  <section class="section">
+    <div class="container grid" style="grid-template-columns:.9fr 1.1fr;gap:26px">
+      <div class="card">
+        <img src="imagen1/autor.jpg" alt="Yirman Moreno" class="avatar" style="width:72px;height:72px;border-radius:12px;margin-bottom:12px">
+        <h3 style="margin:.2rem 0">Yirman Moreno</h3>
+        <p class="muted" style="margin-top:4px">Fundador de Código Dorado IA</p>
+        <p style="margin-top:12px">Creador y escritor especializado en calma práctica. Integra respiración consciente, journaling y reflexión con un enfoque cálido y accesible. Su misión es que la serenidad sea un hábito diario, no un ideal lejano.</p>
+        <div class="badge" style="margin-top:8px">Más de 30 días de guía paso a paso</div>
+      </div>
+      <div class="card">
+        <h3>¿Para quién es este programa?</h3>
+        <ul class="bullets" style="margin-top:8px">
+          <li>Mujeres entre 25 y 45 años, sensibles y autoexigentes, con jornadas intensas.</li>
+          <li>Quienes desean reducir ansiedad sin depender de pastillas ni terapias complejas.</li>
+          <li>Personas que valoran la constancia amorosa por encima de la perfección.</li>
+        </ul>
+        <div class="badge" style="margin-top:14px">No requiere experiencia previa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title center">Resultados de lectoras</h2>
+      <p class="sub center">Testimonios verificados del piloto del programa.</p>
+      <div class="grid reviews">
+        <div class="review">
+          “En dos semanas dejé de despertar con la mente acelerada. La respiración nocturna es mi favorita.”
+          <div class="meta"><img class="avatar" src="imagen1/p1.jpg" alt=""><div><strong>Laura R.</strong><div class="muted">Bogotá</div></div></div>
+        </div>
+        <div class="review">
+          “El journaling guiado me bajó la culpa y el perfeccionismo. Me siento más ligera para trabajar.”
+          <div class="meta"><img class="avatar" src="imagen1/p2.jpg" alt=""><div><strong>Alejandra M.</strong><div class="muted">CDMX</div></div></div>
+        </div>
+        <div class="review">
+          “Por fin entendí que no tengo que forzar la calma. Puedo practicarla en minutos, en cualquier lugar.”
+          <div class="meta"><img class="avatar" src="imagen1/p3.jpg" alt=""><div><strong>Daniela V.</strong><div class="muted">Lima</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonos y garantía -->
+  <section class="section">
+    <div class="container">
+      <div class="bonos">
+        <div class="bono">
+          <h3 class="gold" style="margin-top:0">Bonos incluidos</h3>
+          <ul class="bullets">
+            <li>Audio de respiración guiada 7 minutos (MP3).</li>
+            <li>Plantillas imprimibles de journaling en PDF.</li>
+            <li>Checklist “Qué hacer cuando aparece la ansiedad”.</li>
+          </ul>
+          <p class="muted">Todos los bonos se descargan junto al ebook.</p>
+        </div>
+        <div class="guarantee card">
+          <h3 style="margin-top:0">Garantía 7 días</h3>
+          <p>Si el material no resuena contigo, solicita reembolso desde tu cuenta de Hotmart dentro de los primeros 7 días. Sin preguntas, sin fricción.</p>
+          <img src="imagen1/sello-garantia.png" alt="Garantía" style="width:120px;margin-top:8px;filter:grayscale(100%)"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section id="precios" class="section">
+    <div class="container">
+      <h2 class="title center">Elige tu acceso</h2>
+      <p class="sub center">Pago seguro por Hotmart. Acceso inmediato.</p>
+
+      <div class="grid pricing">
+        <div class="price">
+          <h3>Ebook PDF</h3>
+          <div class="ammount">$17 USD</div>
+          <p class="muted">Guía completa + bonos en descarga.</p>
+          <ul class="bullets">
+            <li>PDF 200+ páginas</li>
+            <li>Audio respiración guiada</li>
+            <li>Plantillas de journaling</li>
+          </ul>
+          <a class="btn" href="https://pay.hotmart.com/ID_DE_TU_PRODUCTO" target="_blank" rel="noopener">Comprar ahora</a>
+        </div>
+
+        <div class="price popular">
+          <div class="ribbon">Recomendado</div>
+          <h3>Pack Calma Total</h3>
+          <div class="ammount">$27 USD</div>
+          <p class="muted">Ebook + audio + plantillas + mini cuaderno AM/PM.</p>
+          <ul class="bullets">
+            <li>Todo lo del ebook</li>
+            <li>Cuaderno de rutinas AM/PM</li>
+            <li>Actualizaciones gratuitas</li>
+          </ul>
+          <a class="btn" href="https://pay.hotmart.com/ID_DEL_PACK" target="_blank" rel="noopener">Quiero el Pack</a>
+        </div>
+
+        <div class="price">
+          <h3>Licencia Equipo</h3>
+          <div class="ammount">$47 USD</div>
+          <p class="muted">Hasta 10 usuarias. Ideal para equipos de bienestar.</p>
+          <ul class="bullets">
+            <li>Uso interno 10 personas</li>
+            <li>Kit de implementación</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a class="btn" href="https://pay.hotmart.com/ID_LICENCIA" target="_blank" rel="noopener">Adquirir licencia</a>
+        </div>
+      </div>
+
+      <p class="center muted" style="margin-top:12px">Impuestos y conversión de moneda pueden variar según país.</p>
+    </div>
+  </section>
+
+  <!-- Lead magnet / Captura -->
+  <section class="section">
+    <div class="container card">
+      <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:24px;align-items:center">
+        <div>
+          <h2 class="title">Prueba gratuita: 3 días de calma</h2>
+          <p class="sub">Descarga un extracto con respiración guiada y primeras plantillas. Te llegará por correo.</p>
+          <form id="lead" class="grid" style="grid-template-columns:1fr auto;gap:10px">
+            <input id="email" type="email" placeholder="Tu correo" required
+                   style="padding:14px 16px;border-radius:10px;border:1px solid var(--stroke);background:#111317;color:var(--text)"/>
+            <button class="btn" type="submit">Quiero el extracto</button>
+            <small class="muted" style="grid-column:1/-1">Al enviar aceptas la política de privacidad y recibir contenido de valor.</small>
+          </form>
+          <p id="lead-msg" class="muted" style="display:none;margin-top:8px"></p>
+        </div>
+        <img src="imagen1/mockup-extracto.png" alt="Extracto gratuito" style="border-radius:12px;border:1px solid var(--stroke)"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title center">Preguntas frecuentes</h2>
+      <div class="faq" style="max-width:880px;margin:0 auto">
+        <div class="item">
+          <button aria-expanded="false">¿En cuánto tiempo recibo el ebook?<span>+</span></button>
+          <div class="answer"><p>El acceso es inmediato tras el pago en Hotmart. Podrás descargar el PDF y los bonos desde tu biblioteca.</p></div>
+        </div>
+        <div class="item">
+          <button aria-expanded="false">¿Necesito experiencia previa en meditación o journaling?<span>+</span></button>
+          <div class="answer"><p>No. Está pensado para principiantes y para retomarlo cuando lo necesites. La guía te acompaña paso a paso.</p></div>
+        </div>
+        <div class="item">
+          <button aria-expanded="false">¿Qué pasa si un día no puedo practicar?<span>+</span></button>
+          <div class="answer"><p>La constancia vale más que la perfección. Puedes continuar al día siguiente. El método propone opciones de 5 a 20 minutos.</p></div>
+        </div>
+        <div class="item">
+          <button aria-expanded="false">¿Hay devolución de dinero?<span>+</span></button>
+          <div class="answer"><p>Sí. 7 días de garantía por Hotmart. Si no es para ti, solicitas el reembolso desde tu cuenta.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA + Countdown -->
+  <div class="sticky">
+    <div class="container row">
+      <div class="countdown"><strong>Oferta termina en:</strong> <span id="cd">00:00:00</span></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#precios">Comprar ahora</a>
+        <a class="btn sec" href="#que-incluye">Ver contenido</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de salida -->
+  <div id="exit" class="modal" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+    <div class="box">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="exit-title">Antes de irte, descarga el plan de 3 días</h3>
+        <button class="close" data-close>×</button>
+      </div>
+      <p>Te regalo un mini itinerario con respiración guiada y journaling para que pruebes el método.</p>
+      <form id="exit-form" class="grid" style="grid-template-columns:1fr auto;gap:10px">
+        <input id="exit-email" type="email" placeholder="Tu correo" required
+               style="padding:14px 16px;border-radius:10px;border:1px solid var(--stroke);background:#111317;color:var(--text)"/>
+        <button class="btn" type="submit">Enviar ahora</button>
       </form>
+      <p id="exit-msg" class="muted" style="display:none;margin-top:8px"></p>
     </div>
   </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <h2>Sobre el autor</h2>
-    <p class="lead">Yirman Moreno, fundador de Código Dorado IA. Integra respiración, escritura terapéutica y presencia con una visión tecnológica consciente para facilitar procesos de calma y autoconocimiento.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container faq">
-    <h2>Preguntas frecuentes</h2>
-    <details>
-      <summary>¿En qué formato recibo el ebook?</summary>
-      <p>PDF y EPUB para que lo leas en móvil, tablet o computador. Enlace de descarga inmediata por correo.</p>
-    </details>
-    <details>
-      <summary>¿Qué pasa si no me funciona?</summary>
-      <p>Tienes 7 días de garantía. Si sientes que no es para ti, escríbenos y te devolvemos el dinero.</p>
-    </details>
-    <details>
-      <summary>¿Cuánto tiempo necesito por día?</summary>
-      <p>De 10 a 15 minutos. El método prioriza constancia amorosa sobre perfección.</p>
-    </details>
-    <details>
-      <summary>¿Necesito experiencia previa?</summary>
-      <p>No. Todo está explicado paso a paso con un lenguaje cálido y cercano.</p>
-    </details>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container card" style="text-align:center">
-    <h2>Garantía de tranquilidad</h2>
-    <p class="lead">Si el ebook no te ayuda a sentir más calma en 7 días, te devolvemos el 100% del dinero. Sin preguntas.</p>
-    <a href="#comprar" class="btn btn--gold">Obtener ahora</a>
-  </div>
-</section>
-
-<div class="cta-bar">
-  <div class="container">
-    <div>
-      <strong>Oferta de lanzamiento</strong> · Quedan <span class="timer" id="timer">00:14:59</span>
+  <footer class="section sm">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1fr auto;gap:12px">
+        <div>
+          © <span id="y"></span> Código Dorado IA. Todos los derechos reservados.
+          <br><a href="#">Política de privacidad</a> • <a href="#">Términos y condiciones</a> • <a href="#">Soporte</a>
+        </div>
+        <img src="imagen1/seguro-hotmart.svg" alt="Pago seguro" style="height:26px;filter:grayscale(100%);opacity:.9">
+      </div>
     </div>
-    <div>
-      <a href="#comprar" class="btn btn--gold">Descargar ebook</a>
-    </div>
-  </div>
-</div>
+  </footer>
 
-<footer>
-  <div class="container" style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center">
-    <div>© <span id="year"></span> Código Dorado IA — Todos los derechos reservados.</div>
-    <div><a href="#" style="color:#a8abb3;text-decoration:none">Política de privacidad</a> · <a href="#" style="color:#a8abb3;text-decoration:none">Términos</a></div>
-  </div>
-</footer>
+  <script>
+    // Año en footer
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-<script>
-/* Año dinámico */
-document.getElementById('year').textContent = new Date().getFullYear();
+    // Acordeón FAQ
+    document.querySelectorAll('.faq .item button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const ans = btn.parentElement.querySelector('.answer');
+        const open = btn.getAttribute('aria-expanded')==='true';
+        btn.setAttribute('aria-expanded', String(!open));
+        ans.style.maxHeight = open ? '0' : ans.scrollHeight + 'px';
+        btn.querySelector('span').textContent = open ? '+' : '–';
+      });
+    });
 
-/* Validación simple y almacenamiento local del lead */
-const form = document.getElementById('leadForm');
-const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-form?.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const name = document.getElementById('name');
-  const email = document.getElementById('email');
-  const errName = document.getElementById('errName');
-  const errEmail = document.getElementById('errEmail');
-  const okMsg = document.getElementById('okMsg');
-
-  let valid = true;
-  if(!name.value.trim()){ errName.style.display='block'; valid=false } else errName.style.display='none';
-  if(!emailRx.test(email.value.trim())){ errEmail.style.display='block'; valid=false } else errEmail.style.display='none';
-
-  if(!valid) return;
-
-  // Guardar localmente (puedes integrar luego tu endpoint)
-  const leads = JSON.parse(localStorage.getItem('leads_ansiedad')||'[]');
-  leads.push({name:name.value.trim(), email:email.value.trim(), country:document.getElementById('country').value, at:new Date().toISOString()});
-  localStorage.setItem('leads_ansiedad', JSON.stringify(leads));
-
-  // Simulación de envío y respuesta
-  okMsg.style.display='block';
-  form.querySelector('button[type="submit"]').disabled = true;
-  setTimeout(()=>{ 
-    // Redirige al pago o a una página de gracias
-    // window.location.href = 'https://tu-pasarela-de-pago.com/enlace';
-  }, 1200);
-});
-
-/* Contador de urgencia: 15 minutos por sesión */
-(function(){
-  const el = document.getElementById('timer');
-  const KEY = 'timer_deadline_ansiedad';
-  const now = Date.now();
-  let deadline = localStorage.getItem(KEY);
-  if(!deadline){ deadline = now + 15*60*1000; localStorage.setItem(KEY, deadline); }
-  deadline = +deadline;
-
-  function tick(){
-    const diff = Math.max(0, deadline - Date.now());
-    const m = Math.floor(diff/60000);
-    const s = Math.floor((diff%60000)/1000);
-    el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    if(diff<=0){
-      // Reinicia otra ventana de 15 min para no bloquear la conversión
-      const next = Date.now()+15*60*1000;
-      localStorage.setItem(KEY, next);
+    // Captura de leads (demo sin backend)
+    function handleLead(formId, emailId, msgId){
+      const form = document.getElementById(formId);
+      const email = document.getElementById(emailId);
+      const msg = document.getElementById(msgId);
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+        if(!email.value || !/^\S+@\S+\.\S+$/.test(email.value)){
+          alert('Por favor escribe un correo válido.');
+          return;
+        }
+        // Aquí envías a tu servicio (Hotmart Leads, MailerLite, etc.)
+        msg.style.display='block';
+        msg.textContent='Listo. Revisa tu bandeja en los próximos minutos.';
+        form.reset();
+      });
     }
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
+    handleLead('lead','email','lead-msg');
+    handleLead('exit-form','exit-email','exit-msg');
 
-/* Suavizado de scroll */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-  });
-});
-</script>
+    // Countdown 20 minutos
+    const end = Date.now()+20*60*1000;
+    const cdEl = document.getElementById('cd');
+    const t = setInterval(()=>{
+      const diff = end - Date.now();
+      if(diff<=0){cdEl.textContent='00:00:00'; clearInterval(t); return;}
+      const h = String(Math.floor(diff/3.6e6)).padStart(2,'0');
+      const m = String(Math.floor(diff%3.6e6/6e4)).padStart(2,'0');
+      const s = String(Math.floor(diff%6e4/1e3)).padStart(2,'0');
+      cdEl.textContent = `${h}:${m}:${s}`;
+    },1000);
+
+    // Exit intent modal
+    let exitShown=false;
+    function showExit(){
+      if(exitShown) return;
+      exitShown=true;
+      document.getElementById('exit').style.display='flex';
+    }
+    document.addEventListener('mouseout', e=>{
+      if(e.clientY<10) showExit();
+    });
+    document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>document.getElementById('exit').style.display='none');
+    document.getElementById('exit').addEventListener('click', e=>{
+      if(e.target.id==='exit') e.currentTarget.style.display='none';
+    });
+
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Placeholder de Analytics/Pixel
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){dataLayer.push(arguments)}
+    // gtag('js', new Date());
+    // gtag('config', 'G-XXXXXXX'); // Tu ID
+  </script>
 </body>
 </html>
